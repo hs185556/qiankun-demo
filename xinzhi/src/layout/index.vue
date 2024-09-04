@@ -15,7 +15,9 @@
       <el-menu-item index="/">home</el-menu-item>
       <el-menu-item index="/about">about</el-menu-item>
     </el-menu>
-    <RouterView />
+    <div class="main-content">
+      <RouterView />
+    </div>
   </div>
 </template>
 
@@ -39,5 +41,11 @@ watch(
 .layout-wrap {
   width: 100%;
   height: 100%;
+}
+.main-content {
+  padding: 20px;
+  height: calc(100vh - 60px);
+  width: 100%;
+  overflow: auto;
 }
 </style>
