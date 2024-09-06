@@ -13,7 +13,7 @@ onMounted(() => {
     {
       name: 'reportGeneration',
       entry: '//localhost:8080',
-      container: '#micro-app',
+      container: '#micro-app-container',
       activeRule: '/child/reportGeneration'
     }
     // {
