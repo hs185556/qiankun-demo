@@ -27,6 +27,10 @@
 </template>
 
 <script>
+import { upmLogin } from "@/api/upm.js";
+import { ElMessage } from "element-plus";
+import { setEncrypt } from "@/utils";
+
 export default {
   name: "LoginView",
   data() {
@@ -38,9 +42,26 @@ export default {
     };
   },
   methods: {
-    handleSubmit() {
-      // 处理登录逻辑
-      console.log("提交的表单数据:", this.form);
+    async handleSubmit() {
+      if (!this.form.username) {
+        return ElMessage.error("请输入登录账号");
+      }
+      if (!this.form.password) {
+        return ElMessage.error("请输入登录密码");
+      }
+
+      const res = await upmLogin({
+        username: this.form.username,
+        password: setEncrypt(this.form.password),
+      });
+      if (res.code === "0") {
+        ElMessage.success("登录成功");
+        localStorage.setItem('main_token', res.data)
+        // await userStore.loginSuccess(res.data);
+        this.$router.push("/");
+      } else {
+        ElMessage.error(res.message || "登录失败");
+      }
     },
   },
 };
