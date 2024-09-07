@@ -35,6 +35,7 @@
         </div>
       </template>
     </el-dialog>
+    <img class="empty_img" src="@/assets/icon_warning.png" alt="" />
   </div>
 </template>
 
