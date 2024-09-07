@@ -24,7 +24,7 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory('/report'),
+  history: createWebHistory(window.__POWERED_BY_QIANKUN__ ? '/child/report' : '/report'),
   routes,
 });
 
