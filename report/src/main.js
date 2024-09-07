@@ -4,21 +4,23 @@ import "element-plus/dist/index.css";
 import "./main.scss";
 import { createApp } from "vue";
 import App from "./App.vue";
-import router from "./router";
+import { routes } from "./router";
 import store from "./store";
-// import { createRouter, createWebHistory } from "vue-router";
-import "@/router/permission";
+import { createRouter, createWebHistory } from "vue-router";
+import permission from "@/router/permission";
 
+let router = null
 let instance = null;
 function render(props = {}) {
   const { container } = props;
 
-  //   const router = createRouter({
-  //     history: createWebHistory(
-  //       window.__POWERED_BY_QIANKUN__ ? "/child/report" : "/report"
-  //     ),
-  //     routes,
-  //   });
+  router = createRouter({
+    history: createWebHistory(
+      window.__POWERED_BY_QIANKUN__ ? "/child/report" : "/report"
+    ),
+    routes,
+  });
+  permission(router);
 
   instance = createApp(App);
   instance
@@ -44,4 +46,5 @@ export async function unmount() {
   instance.unmount();
   instance._container.innerHTML = "";
   instance = null;
+  router = null;
 }
