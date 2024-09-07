@@ -13,14 +13,15 @@ let instance = null;
 function render(props = {}) {
   const { container } = props;
 
-//   const router = createRouter({
-//     history: createWebHistory(
-//       window.__POWERED_BY_QIANKUN__ ? "/child/report" : "/report"
-//     ),
-//     routes,
-//   });
+  //   const router = createRouter({
+  //     history: createWebHistory(
+  //       window.__POWERED_BY_QIANKUN__ ? "/child/report" : "/report"
+  //     ),
+  //     routes,
+  //   });
 
-  instance = createApp(App)
+  instance = createApp(App);
+  instance
     .use(store)
     .use(router)
     .use(ElementPlus)
@@ -40,8 +41,7 @@ export async function mount(props) {
   render(props);
 }
 export async function unmount() {
-  instance.$destroy();
-  instance.$el.innerHTML = "";
+  instance.unmount();
+  instance._container.innerHTML = "";
   instance = null;
-  router = null;
 }

@@ -12,6 +12,9 @@ module.exports = defineConfig({
     // client: {
     //   overlay: false
     // },
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
     proxy: {
       "/api": {
         target: "http://192.168.3.168/xz_platform",

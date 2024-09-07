@@ -11,10 +11,10 @@ onMounted(() => {
   window.registedMicroApps = true
   registerMicroApps([
     {
-      name: 'reportGeneration',
-      entry: '//localhost:8080',
-      container: '#micro-app-container',
-      activeRule: '/child/reportGeneration'
+      name: 'report',
+      entry: 'http://localhost:8080/report/',
+      container: '.micro-app-container',
+      activeRule: '/child/report'
     }
     // {
     //   name: 'react',

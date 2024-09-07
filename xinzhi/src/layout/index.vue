@@ -14,7 +14,7 @@
       </el-menu-item>
       <el-menu-item index="/">home</el-menu-item>
       <el-menu-item index="/about">about</el-menu-item>
-      <el-menu-item index="/child/reportGeneration">reportGeneration</el-menu-item>
+      <el-menu-item index="/child/report">report</el-menu-item>
     </el-menu>
     <div class="main-content">
       <RouterView />

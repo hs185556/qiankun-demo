@@ -26,8 +26,8 @@ const router = createRouter({
       }
     }
     // {
-    //   path: '/child/reportGeneration',
-    //   name: 'reportGeneration'
+    //   path: '/child/report',
+    //   name: 'report'
     // }
   ]
 })
