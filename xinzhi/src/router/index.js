@@ -18,6 +18,11 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue')
     },
     {
+      path: '/page1',
+      name: 'page1',
+      component: () => import('../views/Page1View')
+    },
+    {
       path: '/child/:pathMatch(.*)',
       name: 'microApplications',
       component: () => import('../views/MicroApp.vue'),
