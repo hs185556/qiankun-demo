@@ -1,5 +1,6 @@
 import { defineComponent, ref } from 'vue'
 import styles from './Page1View.module.css'
+import MyButton from '@/components/MyButton'
 
 const ContainerWrap = defineComponent({
   props: {
@@ -58,6 +59,8 @@ export default defineComponent({
         <ContainerWrap title={'ContainerWrap组件'}>
           <h1>默认插槽</h1>
         </ContainerWrap>
+        {/* 8. 组件导入 */}
+        <MyButton></MyButton>
       </div>
     )
   }

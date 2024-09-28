@@ -27,12 +27,15 @@
         </div>
       </template>
     </el-dialog>
+    <!-- 9. 组件混用 -->
+    <MyButton></MyButton>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import { ElMessageBox } from 'element-plus'
+import MyButton from '@/components/MyButton'
 
 const dialogVisible = ref(false)
 const value = ref('11111111111111111')
