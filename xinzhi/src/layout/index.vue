@@ -3,11 +3,12 @@
     <el-menu
       :default-active="activeIndex"
       class="el-menu-demo"
-      mode="horizontal"
+      mode="vertical"
       background-color="#545c64"
       text-color="#fff"
       active-text-color="#ffd04b"
       router
+      :collapse="data.collapse"
     >
       <el-menu-item index="">
         <img style="width: 50px" src="@/assets/logo.svg" alt="Element logo" />
@@ -18,6 +19,11 @@
       <el-menu-item index="/child/report">report</el-menu-item>
     </el-menu>
     <div class="main-content">
+      data.collapse: {{ data.collapse }}
+      <el-radio-group v-model="data.collapse" style="margin-bottom: 20px">
+        <el-radio-button :value="false">expand</el-radio-button>
+        <el-radio-button :value="true">collapse</el-radio-button>
+      </el-radio-group>
       <RouterView />
     </div>
   </div>
@@ -26,7 +32,9 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import globalState from '@/utils/globalState'
 
+const { data, setData } = globalState
 const activeIndex = ref('1')
 const route = useRoute()
 
@@ -43,11 +51,19 @@ watch(
 .layout-wrap {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.el-menu-demo {
+  width: 200px;
+  height: 100vh;
 }
 .main-content {
   padding: 20px;
-  height: calc(100vh - 60px);
-  width: 100%;
+  height: 100vh;
+  width: calc(100vw - 200px);
   overflow: auto;
+  float: right;
+  box-sizing: border-box;
 }
 </style>

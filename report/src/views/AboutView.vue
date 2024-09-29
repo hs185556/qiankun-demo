@@ -75,6 +75,14 @@ export default {
       dialogVisible: false,
     };
   },
+  created() {
+    if (window.$useGlobalState) {
+      const dataListener = window.$useGlobalState.dataListener;
+      dataListener((data) => {
+        console.log("data变化：", data);
+      }, true);
+    }
+  },
   methods: {
     toPage(path) {
       window.$router.push(window.__MICRO_APP_BASE_ROUTE__ + path);

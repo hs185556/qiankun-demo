@@ -6,6 +6,9 @@
 import { onMounted } from 'vue'
 import { registerMicroApps, start } from 'qiankun'
 import router from '@/router'
+import globalState from '@/utils/globalState'
+
+const { data, setData, dataListener } = globalState
 
 onMounted(() => {
   if (window.registedMicroApps) return
@@ -18,9 +21,10 @@ onMounted(() => {
       activeRule: '/child/report',
       props: {
         baseRoute: '/child/report',
-        baseRouter: router
-        // 路由
-        // eventBus
+        baseRouter: router,
+        data,
+        setData,
+        dataListener
       }
     }
     // {
