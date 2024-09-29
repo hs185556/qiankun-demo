@@ -58,7 +58,7 @@ export default {
         ElMessage.success("登录成功");
         localStorage.setItem('main_token', res.data)
         // await userStore.loginSuccess(res.data);
-        this.$router.push("/");
+        this.$router.push(window.__MICRO_APP_BASE_ROUTE__ + "/");
       } else {
         ElMessage.error(res.message || "登录失败");
       }

@@ -5,6 +5,7 @@
 <script setup>
 import { onMounted } from 'vue'
 import { registerMicroApps, start } from 'qiankun'
+import router from '@/router'
 
 onMounted(() => {
   if (window.registedMicroApps) return
@@ -12,9 +13,15 @@ onMounted(() => {
   registerMicroApps([
     {
       name: 'report',
-      entry: 'http://localhost:8080/report/',
+      entry: 'http://localhost:8080',
       container: '.micro-app-container',
-      activeRule: '/child/report'
+      activeRule: '/child/report',
+      props: {
+        baseRoute: '/child/report',
+        baseRouter: router
+        // 路由
+        // eventBus
+      }
     }
     // {
     //   name: 'react',

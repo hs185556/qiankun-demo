@@ -1,13 +1,15 @@
 import HomeView from "../views/HomeView.vue";
 
+const microAppBaseRoute = window.__MICRO_APP_BASE_ROUTE__;
+
 export const routes = [
   {
-    path: "",
+    path: microAppBaseRoute,
     name: "Report",
     children: [
       {
-        path: "",
-        redirect: "about",
+        path: microAppBaseRoute,
+        redirect: microAppBaseRoute + "/about",
       },
       {
         path: "login",

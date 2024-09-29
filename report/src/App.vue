@@ -1,11 +1,15 @@
 <template>
   <nav>
-    <router-link to="/login">Login</router-link> |
-    <router-link to="/home">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link :to="microAppBaseRoute + '/login'">Login</router-link> |
+    <router-link :to="microAppBaseRoute + '/home'">Home</router-link> |
+    <router-link :to="microAppBaseRoute + '/about'">About</router-link>
   </nav>
   <router-view />
 </template>
+
+<script setup>
+const microAppBaseRoute = window.__MICRO_APP_BASE_ROUTE__
+</script>
 
 <style lang="scss">
 #app {

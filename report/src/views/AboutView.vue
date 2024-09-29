@@ -36,12 +36,15 @@
       </template>
     </el-dialog>
     <img class="empty_img" src="@/assets/icon_warning.png" alt="" />
+    <el-button @click="toPage('/home')">ToHome</el-button>
+    <el-button @click="toPageBase('/page1')">ToPage1</el-button>
   </div>
 </template>
 
 <script>
 import { logoinOut } from "@/api/upm";
-import { ElMessageBox } from 'element-plus'
+import { ElMessageBox } from "element-plus";
+
 export default {
   name: "AboutView",
   data() {
@@ -68,11 +71,20 @@ export default {
           address: "No. 189, Grove St, Los Angeles",
         },
       ],
-      value: '222222222222222',
+      value: "222222222222222",
       dialogVisible: false,
     };
   },
   methods: {
+    toPage(path) {
+      window.$router.push(window.__MICRO_APP_BASE_ROUTE__ + path);
+    },
+    toPageBase(path) {
+      window.$baseRouter && window.$baseRouter.push(path);
+    },
+    toPagePushState(path) {
+      window.history.pushState(null, "", path);
+    },
     async logout() {
       await logoinOut();
       localStorage.removeItem("main_token");

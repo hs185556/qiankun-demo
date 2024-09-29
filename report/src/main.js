@@ -4,23 +4,25 @@ import "element-plus/dist/index.css";
 import "./main.scss";
 import { createApp } from "vue";
 import App from "./App.vue";
-import { routes } from "./router";
+// import { routes } from "./router";
 import store from "./store";
 import { createRouter, createWebHistory } from "vue-router";
 import permission from "@/router/permission";
 
-let router = null
+let router = null;
 let instance = null;
-function render(props = {}) {
-  const { container } = props;
+async function render(props = {}) {
+  const { container, baseRoute = "/report", baseRouter } = props;
+  window.__MICRO_APP_BASE_ROUTE__ = baseRoute;
+  window.$baseRouter = baseRouter;
 
+  const routesModule = await import("./router");
   router = createRouter({
-    history: createWebHistory(
-      window.__POWERED_BY_QIANKUN__ ? "/child/report" : "/report"
-    ),
-    routes,
+    history: createWebHistory("/"),
+    routes: routesModule.routes,
   });
   permission(router);
+  window.$router = router;
 
   instance = createApp(App);
   instance
