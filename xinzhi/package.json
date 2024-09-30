@@ -11,6 +11,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@vueuse/core": "^11.1.0",
     "element-plus": "^2.8.1",
     "pinia": "^2.1.7",
     "qiankun": "^2.10.16",

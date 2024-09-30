@@ -1,5 +1,6 @@
 <template>
   <div class="about">
+    collapse: {{ collapse }}
     <h1>This is an about page</h1>
     <el-button type="primary" @click="logout">登出</el-button>
     <el-button plain @click="dialogVisible = true" style="width: 200px">
@@ -73,13 +74,15 @@ export default {
       ],
       value: "222222222222222",
       dialogVisible: false,
+      collapse: true,
     };
   },
   created() {
-    if (window.$useGlobalState) {
-      const dataListener = window.$useGlobalState.dataListener;
-      dataListener((data) => {
+    if (window.$dataBus) {
+      const { onListener } = window.$dataBus;
+      onListener((data) => {
         console.log("data变化：", data);
+        this.collapse = data.collapse;
       }, true);
     }
   },

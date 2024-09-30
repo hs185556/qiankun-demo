@@ -8,7 +8,7 @@
       text-color="#fff"
       active-text-color="#ffd04b"
       router
-      :collapse="data.collapse"
+      :collapse="state.collapse"
     >
       <el-menu-item index="">
         <img style="width: 50px" src="@/assets/logo.svg" alt="Element logo" />
@@ -19,8 +19,8 @@
       <el-menu-item index="/child/report">report</el-menu-item>
     </el-menu>
     <div class="main-content">
-      data.collapse: {{ data.collapse }}
-      <el-radio-group v-model="data.collapse" style="margin-bottom: 20px">
+      state.collapse: {{ state.collapse }}
+      <el-radio-group v-model="state.collapse" style="margin-bottom: 20px">
         <el-radio-button :value="false">expand</el-radio-button>
         <el-radio-button :value="true">collapse</el-radio-button>
       </el-radio-group>
@@ -32,9 +32,9 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import globalState from '@/utils/globalState'
+import useDataBus from '@/utils/useDataBus'
 
-const { data, setData } = globalState
+const { state } = useDataBus()
 const activeIndex = ref('1')
 const route = useRoute()
 

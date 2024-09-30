@@ -8,6 +8,12 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
+import useDataBus from '@/utils/useDataBus'
+
+useDataBus({
+  collapse: false
+})
+
 const app = createApp(App)
 // const push = router.push
 // router.push = function (...args) {
