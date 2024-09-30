@@ -6,10 +6,8 @@
 import { onMounted } from 'vue'
 import { registerMicroApps, start } from 'qiankun'
 import router from '@/router'
-import useDataBus from '@/utils/useDataBus'
+import dataBus from '@/utils/dataBus'
 import eventBus from '@/utils/eventBus'
-
-const dataBus = useDataBus()
 
 onMounted(() => {
   if (window.registedMicroApps) return

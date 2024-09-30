@@ -1,10 +1,11 @@
 /* 
-useDataBus 单例
+dataBus 单例
 state
 dispatch
 forceDispatch
 onListener @return offListner
 offListner
+initData
  */
 import { reactive, watch } from 'vue'
 import { tryOnBeforeUnmount } from '@vueuse/core'
@@ -30,7 +31,7 @@ function useTasks() {
   }
 }
 
-function createFactory(initialData) {
+function createFactory(initialData = {}) {
   const state = reactive(initialData)
   const listeners = new Set()
   const { runTask } = useTasks()
@@ -75,12 +76,16 @@ function createFactory(initialData) {
     onListener,
     offListner
   }
-  return dataBus
 }
 
-export default function useDataBus(initialData = {}) {
-  if (!dataBus) {
-    return createFactory(initialData)
-  }
-  return dataBus
+createFactory()
+
+export function initData(initialData = {}) {
+  const data = dataBus.state
+  Object.keys(data).forEach(key => {
+    delete data[key];
+  });
+  Object.assign(data, initialData)
 }
+
+export default dataBus

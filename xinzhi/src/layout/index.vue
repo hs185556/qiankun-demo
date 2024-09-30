@@ -36,10 +36,10 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import useDataBus from '@/utils/useDataBus'
+import dataBus from '@/utils/dataBus'
 import eventBus from '@/utils/eventBus'
 
-const { state } = useDataBus()
+const { state } = dataBus
 const activeIndex = ref('1')
 const route = useRoute()
 

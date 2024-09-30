@@ -8,9 +8,9 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
-import useDataBus from '@/utils/useDataBus'
+import { initData } from '@/utils/dataBus'
 
-useDataBus({
+initData({
   collapse: false
 })
 
