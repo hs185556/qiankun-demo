@@ -85,6 +85,12 @@ export default {
         this.collapse = data.collapse;
       }, true);
     }
+
+    if (window.$eventBus) {
+      window.$eventBus.on("collapseSwichChanged", (v) => {
+        console.log(">>>collapseSwichChanged", v);
+      });
+    }
   },
   methods: {
     toPage(path) {

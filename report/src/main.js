@@ -12,10 +12,17 @@ import permission from "@/router/permission";
 let router = null;
 let instance = null;
 async function render(props = {}) {
-  const { container, baseRoute = "/report", baseRouter, dataBus } = props;
+  const {
+    container,
+    baseRoute = "/report",
+    baseRouter,
+    dataBus,
+    eventBus,
+  } = props;
   window.__MICRO_APP_BASE_ROUTE__ = baseRoute;
   window.$baseRouter = baseRouter;
   window.$dataBus = dataBus;
+  window.$eventBus = eventBus;
 
   const routesModule = await import("./router");
   router = createRouter({

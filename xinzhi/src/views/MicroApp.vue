@@ -7,6 +7,7 @@ import { onMounted } from 'vue'
 import { registerMicroApps, start } from 'qiankun'
 import router from '@/router'
 import useDataBus from '@/utils/useDataBus'
+import eventBus from '@/utils/eventBus'
 
 const dataBus = useDataBus()
 
@@ -22,7 +23,8 @@ onMounted(() => {
       props: {
         baseRoute: '/child/report',
         baseRouter: router,
-        dataBus
+        dataBus,
+        eventBus
       }
     }
     // {

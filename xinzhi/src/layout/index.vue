@@ -20,7 +20,11 @@
     </el-menu>
     <div class="main-content">
       state.collapse: {{ state.collapse }}
-      <el-radio-group v-model="state.collapse" style="margin-bottom: 20px">
+      <el-radio-group
+        v-model="state.collapse"
+        style="margin-bottom: 20px"
+        @change="handleSwichChange"
+      >
         <el-radio-button :value="false">expand</el-radio-button>
         <el-radio-button :value="true">collapse</el-radio-button>
       </el-radio-group>
@@ -33,6 +37,7 @@
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import useDataBus from '@/utils/useDataBus'
+import eventBus from '@/utils/eventBus'
 
 const { state } = useDataBus()
 const activeIndex = ref('1')
@@ -45,6 +50,10 @@ watch(
   },
   { immediate: true }
 )
+
+function handleSwichChange() {
+  eventBus.emit('collapseSwichChanged', state.collapse)
+}
 </script>
 
 <style scoped lang="scss">
