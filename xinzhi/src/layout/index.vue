@@ -28,7 +28,9 @@
         <el-radio-button :value="false">expand</el-radio-button>
         <el-radio-button :value="true">collapse</el-radio-button>
       </el-radio-group>
-      <RouterView />
+      <transition name="fade-transform" mode="out-in">
+        <RouterView />
+      </transition>
     </div>
   </div>
 </template>
@@ -74,5 +76,16 @@ function handleSwichChange() {
   overflow: auto;
   float: right;
   box-sizing: border-box;
+}
+
+/* fade-transform */
+.fade-transform-leave-active,
+.fade-transform-enter-active {
+  transition: all .5s;
+}
+
+.fade-transform-enter-from {
+  opacity: 0;
+  transform: translateX(-30px);
 }
 </style>
