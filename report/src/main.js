@@ -8,6 +8,7 @@ import App from "./App.vue";
 import store from "./store";
 import { createRouter, createWebHistory } from "vue-router";
 import permission from "@/router/permission";
+import useSvgIcon from "@/utils/useSvgIcon";
 
 let router = null;
 let instance = null;
@@ -37,6 +38,7 @@ async function render(props = {}) {
     .use(store)
     .use(router)
     .use(ElementPlus)
+    .use(useSvgIcon)
     .mount(container ? container.querySelector("#app") : "#app");
 }
 

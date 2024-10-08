@@ -15,7 +15,7 @@ onMounted(() => {
   registerMicroApps([
     {
       name: 'report',
-      entry: 'http://localhost:8080',
+      entry: 'http://localhost:8080/',
       container: '.micro-app-container',
       activeRule: '/child/report',
       props: {

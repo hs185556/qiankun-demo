@@ -2,6 +2,11 @@
   <div class="home">
     <button @click="toggle">Toggle</button><br />
     collapse: {{ collapse }}
+    <svg>
+      <use xlink:href="#icon-cancel1"></use>
+    </svg>
+    <svg-icon name="cancel1" />
+    <svg-icon name="close-icon1" style="color: red"/>
     <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
