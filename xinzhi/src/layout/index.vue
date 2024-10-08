@@ -14,8 +14,8 @@
         <img style="width: 50px" src="@/assets/logo.svg" alt="Element logo" />
       </el-menu-item>
       <el-menu-item index="/">home</el-menu-item>
-      <el-menu-item index="/about1">about1</el-menu-item>
-      <el-menu-item index="/page1">page1</el-menu-item>
+      <el-menu-item index="/xzAbout">about1</el-menu-item>
+      <el-menu-item index="/xzPage1">page1</el-menu-item>
       <el-menu-item index="/child/report">report</el-menu-item>
     </el-menu>
     <div class="main-content">
