@@ -17,11 +17,13 @@ let instance = null;
 async function render(props = {}) {
   const {
     container,
+    rootRoute = "/",
     baseRoute = "/report",
     baseRouter,
     dataBus,
     eventBus,
   } = props;
+  window.__MICRO_APP_ROOT_ROUTE__ = rootRoute;
   window.__MICRO_APP_BASE_ROUTE__ = baseRoute;
   window.$baseRouter = baseRouter;
   window.$dataBus = dataBus;
@@ -29,7 +31,7 @@ async function render(props = {}) {
 
   const routesModule = await import("./router");
   router = createRouter({
-    history: createWebHistory("/"),
+    history: createWebHistory(rootRoute),
     routes: routesModule.routes,
   });
   permission(router);

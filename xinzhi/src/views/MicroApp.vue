@@ -17,8 +17,9 @@ onMounted(() => {
       name: 'report',
       entry: 'http://localhost:8080/',
       container: '.micro-app-container',
-      activeRule: '/child/report',
+      activeRule: '/xinzhi/child/report',
       props: {
+        rootRoute: '/xinzhi',
         baseRoute: '/child/report',
         baseRouter: router,
         dataBus,
