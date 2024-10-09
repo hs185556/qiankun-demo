@@ -9,6 +9,8 @@ import store from "./store";
 import { createRouter, createWebHistory } from "vue-router";
 import permission from "@/router/permission";
 import useSvgIcon from "@/utils/useSvgIcon";
+import { configureCompat } from "vue";
+configureCompat({ MODE: 3 });
 
 let router = null;
 let instance = null;

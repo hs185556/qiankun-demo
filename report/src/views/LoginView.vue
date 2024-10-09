@@ -1,8 +1,9 @@
 <template>
   <el-container class="login-view">
     <el-main>
+      <div class="loginBg"></div>
       <el-form label-position="left" label-width="0px" :model="form">
-        <h3>欢迎登录</h3>
+        <h1>欢迎登录</h1>
         <el-form-item>
           <el-input
             v-model="form.username"
@@ -18,9 +19,9 @@
             prefix-icon="el-icon-lock"
           ></el-input>
         </el-form-item>
-        <el-button type="primary" style="width: 100%" @click="handleSubmit"
-          >登录</el-button
-        >
+        <el-button type="primary" style="width: 100%" @click="handleSubmit">
+          登录
+        </el-button>
       </el-form>
     </el-main>
   </el-container>
@@ -56,7 +57,7 @@ export default {
       });
       if (res.code === "0") {
         ElMessage.success("登录成功");
-        localStorage.setItem('main_token', res.data)
+        localStorage.setItem("main_token", res.data);
         // await userStore.loginSuccess(res.data);
         this.$router.push(window.__MICRO_APP_BASE_ROUTE__ + "/");
       } else {
@@ -68,6 +69,22 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  font-family: D-DIN DIN, YouSheBiaoTiHei;
+}
+
+.loginBg {
+  background-image: url("../assets/login-bg.png");
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
 .login-view {
   display: flex;
   justify-content: center;

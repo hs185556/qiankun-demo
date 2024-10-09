@@ -51,7 +51,7 @@ module.exports = defineConfig({
         symbolId: "icon-[name]",
       });
 
-    config.resolve.alias.set("vue", "@vue/compat");
+    // config.resolve.alias.set("vue", "@vue/compat");
     // config.module
     //   .rule("vue")
     //   .use("vue-loader")
