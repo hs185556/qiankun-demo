@@ -30,6 +30,11 @@ export const routes = [
         component: () =>
           import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
       },
+      {
+        path: "compat",
+        name: "compat",
+        component: () => import("../views/CompatView.vue"),
+      },
     ],
   },
 ];

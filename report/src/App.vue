@@ -2,7 +2,8 @@
   <nav>
     <router-link :to="microAppBaseRoute + '/login'">Login</router-link> |
     <router-link :to="microAppBaseRoute + '/home'">Home</router-link> |
-    <router-link :to="microAppBaseRoute + '/about'">About</router-link>
+    <router-link :to="microAppBaseRoute + '/about'">About</router-link> | 
+    <router-link :to="microAppBaseRoute + '/compat'">Compat</router-link>
   </nav>
   <router-view />
 </template>
