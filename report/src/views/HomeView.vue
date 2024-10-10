@@ -16,21 +16,24 @@
 import { onMounted } from "vue";
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
+import { getCurrentInstance } from 'vue';
 
-// const collapse = window.$dataBus?.state?.collapse
+const { proxy } = getCurrentInstance();
+
+// const collapse = this.$dataBus?.state?.collapse
 // setInterval(() => {
 //   console.log(">>>", collapse);
 // }, 2000);
 
-const { state, forceDispatch, onListener } = window.$dataBus || {};
+const { state, forceDispatch, onListener } = proxy.$dataBus || {};
 
 onMounted(() => {
-  if (!window.$dataBus) return;
+  if (!proxy.$dataBus) return;
   onListener((val) => console.log("val changed:", val));
 });
 
 function toggle() {
-  if (!window.$dataBus) return;
+  if (!proxy.$dataBus) return;
   forceDispatch({ collapse: !state.collapse });
 }
 </script>

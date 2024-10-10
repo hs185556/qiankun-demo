@@ -9,8 +9,8 @@ import store from "./store";
 import { createRouter, createWebHistory } from "vue-router";
 import permission from "@/router/permission";
 import useSvgIcon from "@/utils/useSvgIcon";
-import { configureCompat } from "vue";
-configureCompat({ MODE: 3 });
+// import { configureCompat } from "vue";
+// configureCompat({ MODE: 3 });
 
 let router = null;
 let instance = null;
@@ -25,9 +25,6 @@ async function render(props = {}) {
   } = props;
   window.__MICRO_APP_ROOT_ROUTE__ = rootRoute;
   window.__MICRO_APP_BASE_ROUTE__ = baseRoute;
-  window.$baseRouter = baseRouter;
-  window.$dataBus = dataBus;
-  window.$eventBus = eventBus;
 
   const routesModule = await import("./router");
   router = createRouter({
@@ -35,9 +32,14 @@ async function render(props = {}) {
     routes: routesModule.routes,
   });
   permission(router);
-  window.$router = router;
 
   instance = createApp(App);
+
+  // 挂载到this
+  instance.config.globalProperties.$baseRouter = baseRouter;
+  instance.config.globalProperties.$dataBus = dataBus;
+  instance.config.globalProperties.$eventBus = eventBus;
+
   instance
     .use(store)
     .use(router)

@@ -30,13 +30,15 @@
       <template #footer>
         <div class="dialog-footer">
           <el-button @click="dialogVisible = false">Cancel</el-button>
-          <el-button type="primary" @click="dialogVisible = false"> Confirm </el-button>
+          <el-button type="primary" @click="dialogVisible = false">
+            Confirm
+          </el-button>
         </div>
       </template>
     </el-dialog>
     <img class="empty_img" src="@/assets/icon_warning.png" alt="" />
     <el-button @click="toPage('/home')">ToHome</el-button>
-    <el-button @click="toPageBase('/page1')">ToPage1</el-button>
+    <el-button @click="toPageBase('/xzPage1')">ToXzPage1</el-button>
   </div>
 </template>
 
@@ -76,26 +78,28 @@ export default {
     };
   },
   created() {
-    if (window.$dataBus) {
-      const { onListener } = window.$dataBus;
+    if (this.$dataBus) {
+      const { onListener } = this.$dataBus;
       onListener((data) => {
         console.log("data变化：", data);
         this.collapse = data.collapse;
       }, true);
     }
 
-    if (window.$eventBus) {
-      window.$eventBus.on("collapseSwichChanged", (v) => {
+    if (this.$eventBus) {
+      this.$eventBus.on("collapseSwichChanged", (v) => {
         console.log(">>>collapseSwichChanged", v);
       });
     }
   },
   methods: {
     toPage(path) {
-      window.$router.push(window.__MICRO_APP_BASE_ROUTE__ + path);
+      this.$router.push(window.__MICRO_APP_BASE_ROUTE__ + path);
     },
     toPageBase(path) {
-      window.$baseRouter && window.$baseRouter.push(path);
+      this.$baseRouter.push(path);
+
+      // this.$router.push(path);
     },
     toPagePushState(path) {
       window.history.pushState(null, "", path);
