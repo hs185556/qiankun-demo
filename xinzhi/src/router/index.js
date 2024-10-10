@@ -23,6 +23,11 @@ const router = createRouter({
       component: () => import('../views/Page1View')
     },
     {
+      path: '/xzTailwindcss',
+      name: 'tailwindcss',
+      component: () => import('../views/TailwindcssView')
+    },
+    {
       path: '/child/:pathMatch(.*)',
       name: 'microApplications',
       component: () => import('../views/MicroApp.vue'),

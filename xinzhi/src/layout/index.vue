@@ -16,6 +16,7 @@
       <el-menu-item index="/">home</el-menu-item>
       <el-menu-item index="/xzAbout">about1</el-menu-item>
       <el-menu-item index="/xzPage1">page1</el-menu-item>
+      <el-menu-item index="/xzTailwindcss">tailwindcss</el-menu-item>
       <el-menu-item index="/child/report">report</el-menu-item>
     </el-menu>
     <div class="main-content">

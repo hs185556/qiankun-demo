@@ -5,8 +5,9 @@ import svgIcon from '../components/svgIcon.vue'
 
 <template>
   <main>
+    <p class="text-purple-700 text-opacity-100">The quick brown fox</p>
     <img src="@/assets/svg/cancel.svg" class="svg-icon" />
-    <svg-icon name="cancel"/>
+    <svg-icon name="cancel" />
     <TheWelcome />
   </main>
 </template>

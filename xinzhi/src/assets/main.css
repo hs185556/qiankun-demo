@@ -1,2 +1,6 @@
 @import './base.css';
-@import '@/styles/element.scss'
+@import '@/styles/element.scss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
