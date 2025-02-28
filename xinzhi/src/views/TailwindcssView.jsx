@@ -6,7 +6,10 @@ export default defineComponent({
 
     return () => (
       <div>
-        <h1 className="text-3xl font-bold underline">{name}</h1>
+        <h1 class="text-3xl font-bold underline">{name}</h1>
+        <el-button type="primary" class="bg-sky-500 hover:bg-red-200">
+          登出
+        </el-button>
       </div>
     )
   }
